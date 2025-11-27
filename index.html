@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eric Zhou | R&D Engineering Portfolio</title>
+    <meta name="description" content="Portfolio of Eric Zhou - Electronic & Computer Engineering Student specializing in Hardware, Firmware, and IoT R&D.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#0f172a',
+                            card: '#1e293b',
+                            accent: '#06b6d4', // Cyan for software/cool
+                            warn: '#f59e0b',   // Amber for hardware/heat
+                            success: '#10b981' // Green for success
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #475569; 
+        }
+        
+        .circuit-bg {
+            background-image: radial-gradient(#334155 1px, transparent 1px);
+            background-size: 20px 20px;
+            opacity: 0.1;
+        }
+        
+        /* Tech border effect */
+        .tech-border {
+            position: relative;
+        }
+        .tech-border::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: #06b6d4;
+            transition: width 0.3s ease;
+        }
+        .tech-border:hover::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="bg-brand-dark text-slate-300 font-sans selection:bg-brand-accent selection:text-white">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 bg-brand-dark/90 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0">
+                    <span class="font-mono text-xl font-bold text-white tracking-tighter">
+                        <span class="text-brand-accent">&lt;</span>EricZhou<span class="text-brand-accent">/&gt;</span>
+                    </span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#about" class="hover:text-brand-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">About</a>
+                        <a href="#experience" class="hover:text-brand-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Experience</a>
+                        <a href="#projects" class="hover:text-brand-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">R&D Projects</a>
+                        <a href="#skills" class="hover:text-brand-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Skills</a>
+                        <a href="#contact" class="px-4 py-2 rounded bg-brand-accent/10 text-brand-accent border border-brand-accent/20 hover:bg-brand-accent/20 transition-all text-sm font-bold">Contact Me</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <div class="absolute inset-0 circuit-bg pointer-events-none"></div>
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="inline-flex items-center px-3 py-1 rounded-full border border-brand-accent/30 bg-brand-accent/10 text-brand-accent text-sm font-mono mb-6">
+                        <span class="w-2 h-2 rounded-full bg-brand-accent animate-pulse mr-2"></span>
+                        Available for R&D Opportunities
+                    </div>
+                    <h1 class="text-4xl md:text-6xl font-extrabold text-white tracking-tight mb-6">
+                        Engineering the Future of <br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent to-brand-warn">Hardware & IoT</span>
+                    </h1>
+                    <p class="text-lg text-slate-400 mb-8 max-w-lg leading-relaxed">
+                        Electronic & Computer Engineering student with a proven track record in high-voltage systems, thermal reliability, and full-stack IoT solutions. 
+                        I bridge the gap between firmware, hardware, and software.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#projects" class="px-6 py-3 bg-brand-accent hover:bg-cyan-500 text-slate-900 font-bold rounded shadow-lg shadow-cyan-500/20 transition-all transform hover:-translate-y-1">
+                            View Prototypes
+                        </a>
+                        <a href="https://github.com/yourusername" target="_blank" class="px-6 py-3 bg-slate-800 hover:bg-slate-700 text-white font-medium rounded border border-slate-700 transition-all flex items-center gap-2">
+                            <i data-lucide="github" class="w-4 h-4"></i> GitHub Profile
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Hero Visual: Abstract PCB/Code Representation -->
+                <div class="relative lg:block hidden animate-float">
+                    <div class="relative rounded-xl bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700 p-6 shadow-2xl">
+                        <!-- Code Snippet Aesthetic -->
+                        <div class="flex items-center gap-2 mb-4 border-b border-slate-700 pb-2">
+                            <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                            <div class="text-xs text-slate-500 font-mono ml-2">thermal_driver.c</div>
+                        </div>
+                        <pre class="font-mono text-sm text-blue-300 overflow-x-auto">
+<span class="text-purple-400">void</span> <span class="text-yellow-300">init_HV_driver</span>() {
+    <span class="text-slate-400">// Config 135V @ 15A Channel</span>
+    pwm_freq = <span class="text-brand-accent">1000000</span>; <span class="text-slate-500">// 1MHz</span>
+    safety_check = <span class="text-brand-accent">TRUE</span>;
+    
+    <span class="text-purple-400">if</span> (temp > MAX_TEMP) {
+        <span class="text-brand-warn">shutdown_system()</span>;
+    }
+    
+    <span class="text-slate-500">// Efficiency improved 100x</span>
+    deploy_solution();
+}</pre>
+                        
+                        <!-- Floating Stats -->
+                        <div class="absolute -right-6 -bottom-6 bg-brand-card p-4 rounded-lg border border-slate-700 shadow-xl">
+                            <div class="flex items-center gap-3">
+                                <div class="p-2 bg-green-500/20 rounded-lg text-green-400">
+                                    <i data-lucide="trending-up" class="w-6 h-6"></i>
+                                </div>
+                                <div>
+                                    <div class="text-xs text-slate-400">Revenue Impact</div>
+                                    <div class="text-xl font-bold text-white">>$100k</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Professional Summary -->
+    <section id="about" class="py-20 bg-brand-card/50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold text-white mb-8">Professional Summary</h2>
+            <p class="text-lg text-slate-300 leading-relaxed">
+                I am an Electronic & Computer Engineering undergraduate combining technical proficiency in <span class="text-brand-accent">PCB design</span> and <span class="text-brand-accent">full-stack development</span> with real-world R&D experience. 
+                Recently, I delivered 4 scalable projects for semiconductor inspection tools, generating significant revenue impact.
+                Beyond technical skills, I am a grassroots leader who has organized large-scale community initiatives.
+            </p>
+        </div>
+    </section>
+
+    <!-- Experience Timeline -->
+    <section id="experience" class="py-20">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center gap-4 mb-12">
+                <i data-lucide="briefcase" class="w-8 h-8 text-brand-accent"></i>
+                <h2 class="text-3xl font-bold text-white">Work Experience</h2>
+            </div>
+
+            <div class="relative border-l-2 border-slate-700 ml-3 space-y-12">
+                <!-- Role 1 -->
+                <div class="relative pl-8 md:pl-12">
+                    <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-brand-accent border-4 border-brand-dark"></div>
+                    
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
+                        <h3 class="text-xl font-bold text-white">R&D Engineering Assistant</h3>
+                        <span class="text-sm font-mono text-brand-accent bg-brand-accent/10 px-2 py-1 rounded">Aug 2024 – Present (Intermittent)</span>
+                    </div>
+                    <div class="text-lg text-slate-400 mb-4">HyZL Scientific</div>
+                    
+                    <div class="bg-brand-card p-6 rounded-lg border border-slate-700 hover:border-brand-accent/50 transition-colors">
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle" class="w-5 h-5 text-brand-success flex-shrink-0 mt-1"></i>
+                                <span>Engineered a safety-compliant thermal test system achieving <strong class="text-white">100x faster performance</strong> than existing solutions.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle" class="w-5 h-5 text-brand-success flex-shrink-0 mt-1"></i>
+                                <span>Designed high-power drivers (135V / 15A) with 1MHz switching frequency.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle" class="w-5 h-5 text-brand-success flex-shrink-0 mt-1"></i>
+                                <span>Built a full-stack IoT health monitoring system using SQL, MQTT, and NodeJS in just 4 weeks.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle" class="w-5 h-5 text-brand-success flex-shrink-0 mt-1"></i>
+                                <span>Provided urgent mass production support including PCB soldering and cable fabrication.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Grid -->
+    <section id="projects" class="py-20 bg-brand-card/30">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-white mb-4">Technical R&D Projects</h2>
+                <p class="text-slate-400">A showcase of Hardware, Firmware, and Software integration.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <!-- Project 1: Hardware -->
+                <div class="group bg-brand-dark border border-slate-700 rounded-xl overflow-hidden hover:shadow-2xl hover:shadow-brand-warn/10 transition-all duration-300">
+                    <div class="h-2 bg-brand-warn w-full"></div>
+                    <div class="p-8">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="p-3 bg-brand-warn/10 rounded-lg text-brand-warn">
+                                <i data-lucide="cpu" class="w-8 h-8"></i>
+                            </div>
+                            <span class="text-xs font-mono text-slate-500 border border-slate-700 px-2 py-1 rounded">Hardware R&D</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-brand-warn transition-colors">Thermal Reliability System</h3>
+                        <p class="text-slate-400 mb-6 text-sm">
+                            High-voltage engineering project designed to stress-test semiconductor components.
+                        </p>
+                        
+                        <div class="space-y-4 border-t border-slate-800 pt-4">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <span class="block text-xs text-slate-500 uppercase">Voltage</span>
+                                    <span class="font-mono text-white">135V / 15A</span>
+                                </div>
+                                <div>
+                                    <span class="block text-xs text-slate-500 uppercase">Frequency</span>
+                                    <span class="font-mono text-white">1MHz</span>
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-slate-800 text-slate-300 text-xs rounded">PCB Layout</span>
+                                <span class="px-2 py-1 bg-slate-800 text-slate-300 text-xs rounded">MOSFET Driver</span>
+                                <span class="px-2 py-1 bg-slate-800 text-slate-300 text-xs rounded">Safety Compliance</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: IoT/Software -->
+                <div class="group bg-brand-dark border border-slate-700 rounded-xl overflow-hidden hover:shadow-2xl hover:shadow-brand-accent/10 transition-all duration-300">
+                    <div class="h-2 bg-brand-accent w-full"></div>
+                    <div class="p-8">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="p-3 bg-brand-accent/10 rounded-lg text-brand-accent">
+                                <i data-lucide="wifi" class="w-8 h-8"></i>
+                            </div>
+                            <span class="text-xs font-mono text-slate-500 border border-slate-700 px-2 py-1 rounded">IoT & Full Stack</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-brand-accent transition-colors">IoT Health Monitoring System</h3>
+                        <p class="text-slate-400 mb-6 text-sm">
+                            Remote telemetry system for industrial equipment monitoring vibration, power, and temp.
+                        </p>
+                        
+                        <div class="space-y-4 border-t border-slate-800 pt-4">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <span class="block text-xs text-slate-500 uppercase">Protocol</span>
+                                    <span class="font-mono text-white">MQTT</span>
+                                </div>
+                                <div>
+                                    <span class="block text-xs text-slate-500 uppercase">Stack</span>
+                                    <span class="font-mono text-white">NodeJS / SQL</span>
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-slate-800 text-slate-300 text-xs rounded">Frontend</span>
+                                <span class="px-2 py-1 bg-slate-800 text-slate-300 text-xs rounded">Data Viz</span>
+                                <span class="px-2 py-1 bg-slate-800 text-slate-300 text-xs rounded">Remote Access</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: Calibration -->
+                <div class="group bg-brand-dark border border-slate-700 rounded-xl overflow-hidden hover:shadow-2xl hover:shadow-purple-500/10 transition-all duration-300">
+                    <div class="h-2 bg-purple-500 w-full"></div>
+                    <div class="p-8">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="p-3 bg-purple-500/10 rounded-lg text-purple-400">
+                                <i data-lucide="zap" class="w-8 h-8"></i>
+                            </div>
+                            <span class="text-xs font-mono text-slate-500 border border-slate-700 px-2 py-1 rounded">Calibration</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-purple-400 transition-colors">ESD Probe Calibration Jig</h3>
+                        <p class="text-slate-400 mb-6 text-sm">
+                            Precision calibration equipment ensuring high resistance measurement accuracy.
+                        </p>
+                        
+                        <div class="space-y-4 border-t border-slate-800 pt-4">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <span class="block text-xs text-slate-500 uppercase">Resistance</span>
+                                    <span class="font-mono text-white">1G Ohms</span>
+                                </div>
+                                <div>
+                                    <span class="block text-xs text-slate-500 uppercase">Measurement</span>
+                                    <span class="font-mono text-white">10^12 Ohms</span>
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-slate-800 text-slate-300 text-xs rounded">Compliance</span>
+                                <span class="px-2 py-1 bg-slate-800 text-slate-300 text-xs rounded">High Precision</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4: Mechanical -->
+                <div class="group bg-brand-dark border border-slate-700 rounded-xl overflow-hidden hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-300">
+                    <div class="h-2 bg-blue-500 w-full"></div>
+                    <div class="p-8">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="p-3 bg-blue-500/10 rounded-lg text-blue-400">
+                                <i data-lucide="box" class="w-8 h-8"></i>
+                            </div>
+                            <span class="text-xs font-mono text-slate-500 border border-slate-700 px-2 py-1 rounded">Mechanical</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">Tester Housing Design</h3>
+                        <p class="text-slate-400 mb-6 text-sm">
+                            3D CAD design for Illumination Current Source Test Jigs with optimized cable routing.
+                        </p>
+                        
+                        <div class="space-y-4 border-t border-slate-800 pt-4">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <span class="block text-xs text-slate-500 uppercase">Tool</span>
+                                    <span class="font-mono text-white">3D CAD</span>
+                                </div>
+                                <div>
+                                    <span class="block text-xs text-slate-500 uppercase">Method</span>
+                                    <span class="font-mono text-white">3D Printing</span>
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-slate-800 text-slate-300 text-xs rounded">POC</span>
+                                <span class="px-2 py-1 bg-slate-800 text-slate-300 text-xs rounded">Cable Mgmt</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-white mb-12 text-center">Technical Proficiency</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Skill Category 1 -->
+                <div class="bg-brand-card p-6 rounded-lg border border-slate-700">
+                    <h3 class="text-brand-warn font-mono font-bold mb-4 flex items-center gap-2">
+                        <i data-lucide="cpu" class="w-4 h-4"></i> Hardware
+                    </h3>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li>PCB Design (Eagle/Altium)</li>
+                        <li>Circuit Analysis</li>
+                        <li>High Voltage Systems</li>
+                        <li>Soldering & Fabrication</li>
+                    </ul>
+                </div>
+
+                <!-- Skill Category 2 -->
+                <div class="bg-brand-card p-6 rounded-lg border border-slate-700">
+                    <h3 class="text-brand-accent font-mono font-bold mb-4 flex items-center gap-2">
+                        <i data-lucide="terminal" class="w-4 h-4"></i> Software
+                    </h3>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li>C / C# / Python</li>
+                        <li>NodeJS</li>
+                        <li>HTML / Frontend</li>
+                        <li>SQL Databases</li>
+                    </ul>
+                </div>
+
+                <!-- Skill Category 3 -->
+                <div class="bg-brand-card p-6 rounded-lg border border-slate-700">
+                    <h3 class="text-purple-400 font-mono font-bold mb-4 flex items-center gap-2">
+                        <i data-lucide="radio" class="w-4 h-4"></i> Connectivity
+                    </h3>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li>IoT Protocols</li>
+                        <li>MQTT</li>
+                        <li>System Telemetry</li>
+                        <li>Remote Monitoring</li>
+                    </ul>
+                </div>
+
+                <!-- Skill Category 4 -->
+                <div class="bg-brand-card p-6 rounded-lg border border-slate-700">
+                    <h3 class="text-blue-400 font-mono font-bold mb-4 flex items-center gap-2">
+                        <i data-lucide="settings" class="w-4 h-4"></i> Mechanical
+                    </h3>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li>3D CAD Modeling</li>
+                        <li>3D Printing</li>
+                        <li>Prototyping</li>
+                        <li>Housing Design</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education & Leadership (Compact) -->
+    <section class="py-20 bg-brand-card/30 border-t border-slate-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12">
+            
+            <!-- Education -->
+            <div>
+                <h3 class="text-2xl font-bold text-white mb-6 flex items-center gap-2">
+                    <i data-lucide="graduation-cap" class="w-6 h-6 text-brand-accent"></i> Education
+                </h3>
+                <div class="border-l-2 border-slate-700 pl-6 space-y-6">
+                    <div>
+                        <div class="text-white font-bold">Nanyang Polytechnic</div>
+                        <div class="text-brand-accent text-sm mb-1">2024 – Present</div>
+                        <div class="text-slate-400 text-sm">Diploma in Electronic & Computer Engineering</div>
+                    </div>
+                    <div>
+                        <div class="text-white font-bold">Edgefield Secondary School</div>
+                        <div class="text-brand-accent text-sm mb-1">2020 – 2023</div>
+                        <div class="text-slate-400 text-sm">GCE O-Levels</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Leadership -->
+            <div>
+                <h3 class="text-2xl font-bold text-white mb-6 flex items-center gap-2">
+                    <i data-lucide="users" class="w-6 h-6 text-brand-accent"></i> Leadership
+                </h3>
+                <div class="bg-brand-card p-6 rounded-lg border border-slate-700">
+                    <div class="font-bold text-white mb-2">Grassroots Leader</div>
+                    <div class="text-sm text-slate-500 mb-4">Sengkang North Youth Network</div>
+                    <p class="text-slate-400 text-sm mb-4">
+                        Organized 10+ ticketed community events for 100+ residents. Led youth engagement initiatives and conflict resolution.
+                    </p>
+                    <div class="flex gap-2 text-xs text-brand-accent">
+                        <span>#TeamLeadership</span>
+                        <span>#EventManagement</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Contact -->
+    <footer id="contact" class="bg-black py-12 border-t border-slate-800">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold text-white mb-8">Let's Build Something Together</h2>
+            <p class="text-slate-400 mb-8">
+                Currently open for internships and R&D collaborations.
+            </p>
+            <div class="flex flex-col md:flex-row justify-center items-center gap-6 mb-12">
+                <a href="mailto:zhouyinaneric@outlook.com" class="flex items-center gap-2 text-white hover:text-brand-accent transition-colors">
+                    <i data-lucide="mail" class="w-5 h-5"></i> zhouyinaneric@outlook.com
+                </a>
+                <a href="tel:+6587255881" class="flex items-center gap-2 text-white hover:text-brand-accent transition-colors">
+                    <i data-lucide="phone" class="w-5 h-5"></i> +65 8725 5881
+                </a>
+                <a href="https://202.156.60.141:8090" class="flex items-center gap-2 text-white hover:text-brand-accent transition-colors">
+                    <i data-lucide="globe" class="w-5 h-5"></i> Current Portfolio Server
+                </a>
+            </div>
+            <div class="text-slate-600 text-sm">
+                &copy; 2025 Eric Zhou. Built with Tailwind CSS.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Initialize Icons -->
+    <script>
+        lucide.createIcons();
+        
+        // Simple Smooth Scroll for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
