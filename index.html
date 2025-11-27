@@ -69,6 +69,17 @@
             background-size: 20px 20px;
             opacity: 0.1;
         }
+        
+        /* Image fallback style */
+        img {
+            background-color: #1e293b;
+            color: #94a3b8;
+            font-size: 0.875rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
     </style>
 </head>
 <body class="bg-brand-dark text-slate-300 font-sans selection:bg-brand-accent selection:text-white">
@@ -283,16 +294,17 @@
             <div class="grid md:grid-cols-2 gap-12 items-center mb-24">
                 <div class="order-2 md:order-1">
                     <div class="bg-black/50 p-2 rounded-xl border border-slate-700 shadow-2xl">
-                        <!-- Design Image -->
-                        <img src="layout_in_progress.jpg" alt="PCB Layout in Progress" class="rounded-lg w-full h-auto object-cover opacity-90 hover:opacity-100 transition-opacity">
+                        <!-- Design Image: Ensure filename matches exactly: layout_in_progress.jpg -->
+                        <img src="layout_in_progress.jpg" alt="PCB Layout in Progress - layout_in_progress.jpg" class="rounded-lg w-full h-auto object-cover opacity-90 hover:opacity-100 transition-opacity">
                     </div>
                     <div class="mt-4 flex gap-4 overflow-x-auto pb-2">
-                         <img src="design-screen.jpg" alt="Schematic Design" class="h-24 rounded border border-slate-700 hover:border-brand-warn cursor-pointer transition-colors">
+                         <!-- Schematic Image: Ensure filename matches exactly: design-screen.jpg -->
+                         <img src="design-screen.jpg" alt="Schematic Design - design-screen.jpg" class="h-24 rounded border border-slate-700 hover:border-brand-warn cursor-pointer transition-colors">
                     </div>
                 </div>
                 <div class="order-1 md:order-2">
                     <div class="flex items-center gap-4 mb-6">
-                        <span class="text-6xl font-black text-slate-800">01</span>
+                        <span class="text-6xl font-black text-slate-800/80 drop-shadow-[0_2px_2px_rgba(255,255,255,0.1)]">01</span>
                         <h4 class="text-2xl font-bold text-brand-warn">Design & Layout</h4>
                     </div>
                     <p class="text-slate-300 mb-6 leading-relaxed">
@@ -320,7 +332,7 @@
             <div class="grid md:grid-cols-2 gap-12 items-center mb-24">
                 <div>
                     <div class="flex items-center gap-4 mb-6">
-                        <span class="text-6xl font-black text-slate-800">02</span>
+                        <span class="text-6xl font-black text-slate-800/80 drop-shadow-[0_2px_2px_rgba(255,255,255,0.1)]">02</span>
                         <h4 class="text-2xl font-bold text-brand-accent">Prototyping & Validation</h4>
                     </div>
                     <p class="text-slate-300 mb-6 leading-relaxed">
@@ -333,12 +345,12 @@
                 </div>
                 <div class="relative">
                     <div class="bg-black/50 p-2 rounded-xl border border-slate-700 shadow-2xl relative z-10">
-                        <!-- Setup Image -->
-                        <img src="setup..jpg" alt="Assembled Test Jig" class="rounded-lg w-full h-auto object-cover">
+                        <!-- Setup Image: Ensure filename matches exactly: setup..jpg -->
+                        <img src="setup..jpg" alt="Assembled Test Jig - setup..jpg" class="rounded-lg w-full h-auto object-cover">
                     </div>
                     <!-- Overlay Bench Test Image -->
                     <div class="absolute -bottom-10 -left-10 w-1/2 bg-black/80 p-1 rounded-lg border border-slate-600 shadow-xl z-20 hidden md:block">
-                        <img src="bench_test.jpg" alt="Breadboard Testing" class="rounded w-full h-auto">
+                        <img src="bench_test.jpg" alt="Breadboard Testing - bench_test.jpg" class="rounded w-full h-auto">
                         <div class="text-xs text-center text-slate-500 mt-1">Initial POC</div>
                     </div>
                 </div>
@@ -348,13 +360,13 @@
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div class="order-2 md:order-1">
                     <div class="bg-black/50 p-2 rounded-xl border border-slate-700 shadow-2xl">
-                        <!-- Production Image -->
-                        <img src="set-machine.jpg" alt="Mass Production Panel" class="rounded-lg w-full h-auto object-cover">
+                        <!-- Production Image: Ensure filename matches exactly: set-machine.jpg -->
+                        <img src="set-machine.jpg" alt="Mass Production Panel - set-machine.jpg" class="rounded-lg w-full h-auto object-cover">
                     </div>
                 </div>
                 <div class="order-1 md:order-2">
                     <div class="flex items-center gap-4 mb-6">
-                        <span class="text-6xl font-black text-slate-800">03</span>
+                        <span class="text-6xl font-black text-slate-800/80 drop-shadow-[0_2px_2px_rgba(255,255,255,0.1)]">03</span>
                         <h4 class="text-2xl font-bold text-brand-success">Mass Production</h4>
                     </div>
                     <p class="text-slate-300 mb-6 leading-relaxed">
